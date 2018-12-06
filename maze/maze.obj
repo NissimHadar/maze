@@ -1,6 +1,6 @@
 # Object Export From Tinkercad Server 2015
 
-mtllib base.mtl
+mtllib maze.mtl
 
 o obj_0
 v 75 		-3 		9

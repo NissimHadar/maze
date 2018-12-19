@@ -11,8 +11,7 @@ var base = Entities.addEntity({
 	rotation: Quat.fromPitchYawRollDegrees(-90.0, 0.0, 0.0),    
 	visible: true,
 	dynamic: true,
-	"shapeType": "static-mesh",
-	userData: JSON.stringify({ grabbableKey: { grabbable: true } })
+	"shapeType": "static-mesh"
 });
 	
 var maze = Entities.addEntity({
@@ -21,11 +20,11 @@ var maze = Entities.addEntity({
 	color: { red: 100, green: 100, blue: 100 },
 	modelURL: 'file:///C:/maze/maze/maze.obj',
 	dimensions: { x: 0.45, y: 0.45, z: 0.1 },
-	position: Vec3.sum(position, {x: 0.0, y: 0.3, z: 0.0 }),   
-	rotation: Quat.fromPitchYawRollDegrees(-90.0, 0.0, 0.0),    
+	localPosition: {x: 0.0, y: 0.0, z: 0.05 },   
+	localRotation: Quat.fromPitchYawRollDegrees(0.0, 0.0, 0.0),    
 	visible: true,
 	dynamic: true,
-	parentID: base.sessionUUID,
+	parentID: base,
 	"shapeType": "static-mesh",
 	userData: JSON.stringify({ grabbableKey: { grabbable: false } })
 });
@@ -35,7 +34,7 @@ var ball = Entities.addEntity({
 	type: "Sphere",
 	color: { red: 0, green: 255, blue: 255 },
 	dimensions: { x: 0.03, y: 0.03, z: 0.03 },
-	position: Vec3.sum(position, {x: 0.0, y: 0.3, z: -2.0 }),   
+	position: Vec3.sum(position, {x: 0.0, y: 0.5, z: -2.0 }),   
 	gravity: {x: 0.0, y: -1.0, z: 0.0 },   
 	visible: true,
 	dynamic: true

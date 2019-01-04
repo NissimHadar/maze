@@ -11,6 +11,7 @@ var base = Entities.addEntity({
 	rotation: Quat.fromPitchYawRollDegrees(-90.0, 0.0, 0.0),    
 	visible: true,
 	dynamic: true,
+    kinematic: false,
 	"shapeType": "static-mesh"
 });
 	
@@ -24,6 +25,7 @@ var maze = Entities.addEntity({
 	localRotation: Quat.fromPitchYawRollDegrees(0.0, 0.0, 0.0),    
 	visible: true,
 	dynamic: true,
+    kinematic: false,
 	parentID: base,
 	"shapeType": "static-mesh",
 	userData: JSON.stringify({ grabbableKey: { grabbable: false } })
@@ -37,6 +39,7 @@ var ball = Entities.addEntity({
 	position: Vec3.sum(position, {x: 0.0, y: 0.5, z: -2.0 }),   
 	gravity: {x: 0.0, y: -1.0, z: 0.0 },   
 	visible: true,
+    kinematic: false,
 	dynamic: true
 });
 

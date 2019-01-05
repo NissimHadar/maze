@@ -12,7 +12,8 @@ var base = Entities.addEntity({
 	visible: true,
 	dynamic: true,
     kinematic: false,
-	"shapeType": "static-mesh"
+	"shapeType": "static-mesh",
+	userData: JSON.stringify({ grabbableKey: { grabbable: false } })
 });
 	
 var maze = Entities.addEntity({
@@ -20,7 +21,7 @@ var maze = Entities.addEntity({
 	type: "Model",
 	color: { red: 100, green: 100, blue: 100 },
 	modelURL: 'file:///C:/maze/maze/maze.obj',
-	dimensions: { x: 0.46, y: 0.46, z: 0.1 },
+	dimensions: { x: 0.46, y: 0.46, z: 0.06 },
 	localPosition: {x: 0.0, y: 0.0, z: 0.05 },   
 	localRotation: Quat.fromPitchYawRollDegrees(0.0, 0.0, 0.0),    
 	visible: true,
@@ -58,6 +59,36 @@ var ballCollector = Entities.addEntity({
 	"shapeType": "static-mesh",
 	userData: JSON.stringify({ grabbableKey: { grabbable: false } })
 });
+	
+var knob_1 = Entities.addEntity({
+	name : "Knob 1",
+	type: "Model",
+	color: { red: 100, green: 100, blue: 100 },
+	modelURL: 'file:///C:/maze/knob/knob.obj',
+	dimensions: { x: 0.050, y: 0.050, z: 0.030 },
+	localPosition: {x: -0.27, y: 0.0, z: -0.005 },   
+	localRotation: Quat.fromPitchYawRollDegrees(90.0, 0.0, 90.0),    
+	visible: true,
+	dynamic: true,
+    kinematic: false,
+	parentID: base,
+	"shapeType": "static-mesh"
+});
+	
+var knob_2 = Entities.addEntity({
+	name : "Knob 1",
+	type: "Model",
+	color: { red: 100, green: 100, blue: 100 },
+	modelURL: 'file:///C:/maze/knob/knob.obj',
+	dimensions: { x: 0.050, y: 0.050, z: 0.030 },
+	localPosition: {x: 0.0, y: -0.27, z: -0.0235 },   
+	localRotation: Quat.fromPitchYawRollDegrees(90.0, 0.0, 180.0),    
+	visible: true,
+	dynamic: true,
+    kinematic: false,
+	parentID: base,
+	"shapeType": "static-mesh"
+});
 
 // Delete all entities when finished
 Script.scriptEnding.connect(function () {
@@ -65,4 +96,6 @@ Script.scriptEnding.connect(function () {
   Entities.deleteEntity(maze);
   Entities.deleteEntity(ball);
   Entities.deleteEntity(ballCollector);
+  Entities.deleteEntity(knob_1);
+  Entities.deleteEntity(knob_2);
 });
